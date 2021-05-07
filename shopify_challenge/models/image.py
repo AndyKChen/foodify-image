@@ -1,5 +1,6 @@
 from shopify_challenge.extensions import db
-
+from sqlalchemy.dialects.postgresql import ARRAY
+from sqlalchemy.ext.mutable import MutableList
 
 class ImageModel(db.Model):
     __table__name = "Images"
@@ -8,19 +9,29 @@ class ImageModel(db.Model):
     username = db.Column(db.String(255), db.ForeignKey('Users.username'))
     url = db.Column(db.String(255), nullable=False)
     date = db.Column(db.DateTime, nullable=False)
+    labels = db.Column(MutableList.as_mutable(ARRAY(db.String)))
+    private = db.Column(db.Boolean, nullable=False)
 
     def __init__(self,
                  username,
-                 url):
+                 url,
+                 date,
+                 labels,
+                 private):
         self.username = username
         self.url = url
+        self.date = date
+        self.labels = labels
+        self.private = private
     
     def json(self):
         json_response = {
             'id': self.id,
             'username': self.username,
             'url': self.url,
-            'date': self.date
+            'date': self.date,
+            'labels': self.labels,
+            'private': self.private
         }
         return json_response
 
