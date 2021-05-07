@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask
+from flask_migrate import Migrate
 
 from shopify_challenge.extensions import db
 from shopify_challenge.routes.main import register_main_routes
@@ -14,6 +15,7 @@ def create_app():
     )
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
+    Migrate(app, db)
 
     @app.before_first_request
     def create_tables():
