@@ -1,5 +1,7 @@
+from flask import render_template
 from flask.views import MethodView
+
 
 class Home(MethodView):
     def get(self):
-        return {"message": "Hello World!"}, 200
+        return render_template("home.html")
