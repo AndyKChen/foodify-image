@@ -14,6 +14,10 @@ def create_app():
         'postgresql://postgres:postgres@localhost:5432/shopify-challenge'
     )
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.config['DEBUG'] = True
+    app.secret_key = os.getenv("SECRET")
+    
     db.init_app(app)
     Migrate(app, db)
 
