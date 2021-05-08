@@ -77,3 +77,16 @@ form{
     z-index: 2;
     position: relative;
 }
+
+.center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.divider{
+    width:10px;
+    height:auto;
+    display:inline-block;
+}
