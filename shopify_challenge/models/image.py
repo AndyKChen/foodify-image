@@ -1,3 +1,4 @@
+from sqlalchemy import and_
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.ext.mutable import MutableList
 
@@ -36,6 +37,20 @@ class ImageModel(db.Model):
     @classmethod
     def get_all_images(cls):
         return cls.query.all().order_by(cls.date.desc())
+
+    @classmethod
+    def get_all_images_by_username(cls, username):
+        return cls.query.filter(cls.username == username)
+
+    @classmethod
+    def get_private_images_by_username(cls, username):
+        return cls.query.filter(and_(cls.username == username)
+                                    (cls.private == True))
+    
+    @classmethod
+    def get_public_images_by_username(cls, username):
+        return cls.query.filter(and_(cls.username == username)
+                                    (cls.private == False))
     
     def save_to_database(self):
         db.session.add(self)
