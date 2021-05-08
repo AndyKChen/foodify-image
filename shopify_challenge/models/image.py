@@ -9,29 +9,26 @@ class ImageModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255))
-    url = db.Column(db.String(255), nullable=False)
+    identifier = db.Column(db.String(255), nullable=False)
     date = db.Column(db.DateTime, nullable=False)
     private = db.Column(db.Boolean, nullable=False)
 
     def __init__(self,
                  username,
-                 url,
+                 identifier,
                  date,
-                 labels,
                  private):
         self.username = username
-        self.url = url
+        self.identifier = identifier
         self.date = date
-        self.labels = labels
         self.private = private
     
     def json(self):
         json_response = {
             'id': self.id,
             'username': self.username,
-            'url': self.url,
+            'identifier': self.identifier,
             'date': self.date,
-            'labels': self.labels,
             'private': self.private
         }
         return json_response
