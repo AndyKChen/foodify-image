@@ -1,8 +1,9 @@
-from flask import render_template, request, redirect, session, flash
+from flask import flash, redirect, render_template, request, session
 from flask.views import MethodView
 
 from shopify_challenge.helpers.validations import validate_user
 from shopify_challenge.models.user import UserModel
+
 
 class Login(MethodView):
 

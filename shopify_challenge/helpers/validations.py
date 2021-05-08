@@ -1,4 +1,5 @@
 import re
+
 from passlib.hash import sha256_crypt
 
 from shopify_challenge.models.user import UserModel

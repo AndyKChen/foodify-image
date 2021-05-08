@@ -1,6 +1,8 @@
-from flask import render_template, session, redirect
+from flask import redirect, render_template, session
 from flask.views import MethodView
+
 from shopify_challenge.helpers.decorators import login_required
+
 
 class Upload(MethodView):
 

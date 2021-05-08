@@ -4,6 +4,7 @@ from flask import jsonify
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 
+
 def register_util_routes(app):
     @app.route("/health")
     def health():

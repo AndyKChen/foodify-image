@@ -7,6 +7,7 @@ from shopify_challenge.extensions import db
 from shopify_challenge.routes.main import register_main_routes
 from shopify_challenge.routes.util import register_util_routes
 
+
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(

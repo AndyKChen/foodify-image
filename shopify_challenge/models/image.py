@@ -1,6 +1,8 @@
-from shopify_challenge.extensions import db
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.ext.mutable import MutableList
+
+from shopify_challenge.extensions import db
+
 
 class ImageModel(db.Model):
     __table__name = "Images"

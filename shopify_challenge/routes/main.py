@@ -1,6 +1,8 @@
 from flask import jsonify
 
-from shopify_challenge.extensions import discover_view, register_view, login_view, upload_view
+from shopify_challenge.extensions import (discover_view, login_view,
+                                          register_view, upload_view)
+
 
 def register_main_routes(app):
     app.add_url_rule('/', view_func=discover_view, methods=['GET'])
