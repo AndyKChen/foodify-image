@@ -8,7 +8,7 @@ class ImageModel(db.Model):
     __table__name = "Images"
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(255), db.ForeignKey('Users.username'))
+    username = db.Column(db.String(255))
     url = db.Column(db.String(255), nullable=False)
     date = db.Column(db.DateTime, nullable=False)
     labels = db.Column(MutableList.as_mutable(ARRAY(db.String)))

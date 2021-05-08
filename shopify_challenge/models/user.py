@@ -9,7 +9,6 @@ class UserModel(db.Model):
     last_name = db.Column(db.String(255), nullable=False)
     username = db.Column(db.String(255), nullable=False)
     password = db.Column(db.String(255), nullable=False)
-    images = db.relationship("ImageModel")
 
     def __init__(self,
                  first_name,
