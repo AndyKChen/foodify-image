@@ -11,7 +11,6 @@ class ImageModel(db.Model):
     username = db.Column(db.String(255))
     url = db.Column(db.String(255), nullable=False)
     date = db.Column(db.DateTime, nullable=False)
-    labels = db.Column(MutableList.as_mutable(ARRAY(db.String)))
     private = db.Column(db.Boolean, nullable=False)
 
     def __init__(self,
