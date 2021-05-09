@@ -32,7 +32,7 @@ class Register(MethodView):
             return {'message': 'An error occurred saving the user to the database.'}, 500
         
         flash('Account Created!', 'success')
-        return redirect("login.html"), 201
+        return redirect("login.html"), 301
 
 
     # def post(self):

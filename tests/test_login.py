@@ -11,7 +11,7 @@ def test_get_login_page(client):
 def test_valid_login(client):
     register_test_user(client)
     res = login_test_user(client)
-    assert res.status_code == 200
+    assert res.status_code == 301
 
 
 def test_invalid_password_login(client):

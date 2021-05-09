@@ -16,7 +16,7 @@ def test_change_image_privacy(client):
     res = edit_image(client, identifier, 'make public')
     image = ImageModel.get_image_by_identifier(identifier)
     assert image.private == False
-    assert res.status_code == 200
+    assert res.status_code == 301
 
     # delete image from s3 and db
     edit_image(client, identifier, 'delete')

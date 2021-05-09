@@ -8,7 +8,7 @@ def test_get_register_page(client):
 
 def test_register_valid(client):
     res = register_test_user(client)
-    assert res.status_code == 201
+    assert res.status_code == 301
 
 
 def test_register_invalid_password(client):

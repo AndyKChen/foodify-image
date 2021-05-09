@@ -38,11 +38,11 @@
               </ul>
               {% endif %}
       </nav>
-      {% if not session.username %}
+      <!-- {% if not session.username %}
         <div class="alert alert-primary" style="text-align: center;">
           <h6>Make an account or login to add images to a public or private repository!</h6>
         </div>
-      {% endif %}
+      {% endif %} -->
     {% with messages=get_flashed_messages(with_categories=true) %}
         {% for category, message in messages %}
         <div class='alert alert-{{category}} text-center alert-dismissible fade show m-auto'>

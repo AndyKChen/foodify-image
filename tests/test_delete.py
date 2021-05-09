@@ -16,6 +16,6 @@ def test_delete_image(client):
 
     private_images = ImageModel.get_private_images_by_username('test_user')
     assert len(private_images) == 0
-    assert res.status_code == 200
+    assert res.status_code == 301
 
     
