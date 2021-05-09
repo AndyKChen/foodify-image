@@ -7,7 +7,7 @@
 {% block content %}
 
 <div>
-    {% if not images %} 
+    {% if not images.items %} 
         <div class="container py-5" style="margin-top: 20vh;">
 
             <header class="text-white text-center">
@@ -21,7 +21,7 @@
     {% else %}
     <h3 style="margin-top: 50px; margin-left: 50px" style="color:white">Discover new images!</h3>
         <div class="row no-gutters" style="padding-left: 25px; padding-right: 25px">
-        {% for f in images %}
+        {% for f in images.items %}
         <div class="col">
             <div class="card">
                 <img src={{cloudfront + f.identifier}} class="card-img-top" alt="...">
@@ -39,6 +39,21 @@
             </div>
         </div>
         {% endfor %}
+        <div style="padding-right: 65px">
+            <nav aria-label="Page navigation example" style="margin-top:10px;">
+                <ul class="pagination justify-content-end">
+                    {% for page in images.iter_pages() %}
+                            {% if page %}
+                                <li class="page-item">
+                                    <a href="/discover/{{page}}" class="page-link">{{page}}</a>
+                                </li>
+                            {% else %}
+                            ...
+                            {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
     {% endif %}
     </div>
 </div>

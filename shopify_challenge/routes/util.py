@@ -1,6 +1,6 @@
 import os
 
-from flask import jsonify
+from flask import jsonify, redirect
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 
@@ -28,3 +28,7 @@ def register_util_routes(app):
         swag['info']['version'] = "1.0"
         swag['info']['title'] = "Shopify Challenge"
         return jsonify(swag)
+
+    @app.route("/")
+    def reroute():
+        return redirect("/discover/1")

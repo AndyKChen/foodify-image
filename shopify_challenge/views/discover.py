@@ -13,8 +13,8 @@ from shopify_challenge.models.image import ImageModel
 
 
 class Discover(MethodView):
-    def get(self):
-        images = ImageModel.get_all_public_images()
+    def get(self, page_num):
+        images = ImageModel.get_all_public_images(page_num)
         return render_template('discover.html', images=images, cloudfront=CLOUDFRONT)
 
     def post(self):
