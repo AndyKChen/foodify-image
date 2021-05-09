@@ -5,6 +5,7 @@ from flask.views import MethodView
 
 from shopify_challenge.helpers.decorators import login_required
 from shopify_challenge.models.image import ImageModel
+from shopify_challenge.helpers.image_upload import delete_image
 
 class Personal(MethodView):
     
@@ -23,5 +24,6 @@ class Personal(MethodView):
         if action == "make public" or action == "make private":
             image.change_privacy()
         elif action == "delete":
+            delete_image(identifier)
             image.delete_from_database()
         return redirect('/personal')

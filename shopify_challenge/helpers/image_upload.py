@@ -26,3 +26,6 @@ def create_presigned_post(bucket_name, object_name, fields=None, conditions=None
                                                  Conditions=conditions,
                                                  ExpiresIn=expiration)
     return response
+
+def delete_image(key):
+    s3_client.delete_object(Bucket=os.environ.get('S3_BUCKET_NAME'), Key=key)
