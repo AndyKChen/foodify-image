@@ -41,5 +41,5 @@ def upload_multiple_images(client):
     return res
 
 def edit_image(client, identifier, action):
-    res = client.post('/personal', data={'action':action, 'identifier':identifier})
+    res = client.post('/personal/1', data={'action':action, 'identifier':identifier})
     return res

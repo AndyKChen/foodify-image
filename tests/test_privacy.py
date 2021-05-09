@@ -9,9 +9,9 @@ def test_change_image_privacy(client):
     login_test_user(client)
     upload_single_image(client)
 
-    private_images = ImageModel.get_private_images_by_username('test_user')
-    identifier = private_images[0].identifier
-    assert private_images[0].private == True
+    private_images = ImageModel.get_private_images_by_username('test_user', 1)
+    identifier = private_images.items[0].identifier
+    assert private_images.items[0].private == True
 
     res = edit_image(client, identifier, 'make public')
     image = ImageModel.get_image_by_identifier(identifier)

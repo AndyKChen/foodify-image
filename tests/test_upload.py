@@ -20,22 +20,22 @@ def test_upload_single_image(client):
     register_test_user(client)
     login_test_user(client)
     res = upload_single_image(client)
-    private_images = ImageModel.get_private_images_by_username('test_user')
-    assert len(private_images) == 1
+    private_images = ImageModel.get_private_images_by_username('test_user', 1)
+    assert private_images.total == 1
     assert res.status_code == 301
     
     # delete image from s3 and db
-    edit_image(client, private_images[0].identifier, 'delete')
+    edit_image(client, private_images.items[0].identifier, 'delete')
 
 
 def test_upload_multiple_images(client):
     register_test_user(client)
     login_test_user(client)
     res = upload_multiple_images(client)
-    private_images = ImageModel.get_private_images_by_username('test_user')
-    assert(len(private_images) == 3)
+    private_images = ImageModel.get_private_images_by_username('test_user', 1)
+    assert private_images.total == 3
     assert res.status_code == 301
 
     # delete images from s3 and db
-    for image in private_images:
+    for image in private_images.items:
         edit_image(client, image.identifier, 'delete')
