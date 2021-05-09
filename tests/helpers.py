@@ -1,7 +1,6 @@
-from PIL import Image
 import glob
+
 from shopify_challenge.models.image import ImageModel
-from io import StringIO
 
 TEST_IMAGES_PATH = 'tests/test_images/'
 

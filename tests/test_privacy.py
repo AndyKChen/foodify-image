@@ -1,5 +1,8 @@
-from .helpers import register_test_user, login_test_user, upload_single_image, edit_image
 from shopify_challenge.models.image import ImageModel
+
+from .helpers import (edit_image, login_test_user, register_test_user,
+                      upload_single_image)
+
 
 def test_change_image_privacy(client):
     register_test_user(client)

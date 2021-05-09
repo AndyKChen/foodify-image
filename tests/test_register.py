@@ -1,5 +1,6 @@
 from .helpers import register_test_user
 
+
 def test_get_register_page(client):
     res = client.get('/register')
     assert res.status_code == 200

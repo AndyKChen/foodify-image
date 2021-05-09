@@ -1,8 +1,10 @@
 import os
+
 import pytest
 
 from shopify_challenge import create_app
 from shopify_challenge.extensions import db
+
 
 @pytest.fixture
 def client():
@@ -13,7 +15,6 @@ def client():
 
     client = app.test_client()
     with app.app_context():
-        app.secret_key = "secret"
         db.create_all()
         yield client
         db.session.remove()

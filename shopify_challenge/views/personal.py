@@ -36,5 +36,5 @@ class Personal(MethodView):
                 BytesIO(requests.get(url).content),
                 mimetype='image/jpeg',
                 headers={"Content-Disposition": "attachment;filename=" + identifier}
-            )
+            ), 200
         return redirect('/personal'), 200

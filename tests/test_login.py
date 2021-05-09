@@ -1,5 +1,6 @@
 from flask import session
-from .helpers import register_test_user, login_test_user
+
+from .helpers import login_test_user, register_test_user
 
 
 def test_get_login_page(client):

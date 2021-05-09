@@ -1,5 +1,8 @@
-from .helpers import register_test_user, login_test_user, upload_single_image, upload_multiple_images, edit_image
 from shopify_challenge.models.image import ImageModel
+
+from .helpers import (edit_image, login_test_user, register_test_user,
+                      upload_multiple_images, upload_single_image)
+
 
 def test_get_upload_page(client):
     register_test_user(client)
