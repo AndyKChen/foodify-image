@@ -30,8 +30,8 @@
                     <img src={{cloudfront + f.identifier}} class="card-img-top" alt="..." width=150px>
                     <div class="card-body">
                         <p class="card-title">Date Added: {{f.date.date()}}</p>
-                        <small name="identifier">{{f.identifier}}</small>
                         <form method="POST">
+                            <small>{{f.identifier}}</small>
                             <row>
                                 <input hidden name="identifier" value={{f.identifier}}></input>
                                 <input type="submit" name="edit-image" value="make public" class="btn btn-success"></input>
@@ -54,8 +54,8 @@
                     <img src={{cloudfront + f.identifier}} class="card-img-top" alt="..." width=150px>
                     <div class="card-body">
                         <p class="card-title">Date Added: {{f.date.date()}}</p>
-                        <small name="identifier">{{f.identifier}}</small>
                         <form method="POST">
+                            <small>{{f.identifier}}</small>
                             <row>
                                 <input hidden name="identifier" value={{f.identifier}}></input>
                                 <input type="submit" name="edit-image" value="make private" class="btn btn-success"></input>

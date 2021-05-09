@@ -35,8 +35,8 @@ class ImageModel(db.Model):
         return json_response
 
     @classmethod
-    def get_all_images(cls):
-        return cls.query.all().order_by(cls.date.desc())
+    def get_all_public_images(cls):
+        return cls.query.filter(cls.private == False).order_by(cls.date.desc()).all()
 
     @classmethod
     def get_all_images_by_username(cls, username: str):
