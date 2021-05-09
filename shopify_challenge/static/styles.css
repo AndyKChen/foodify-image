@@ -1,7 +1,7 @@
 body { 
 	min-height: 100vh;
     background-color: #757f9a;
-    background-image: linear-gradient(147deg, #757f9a 0%, #d7dde8 100%);
+    background-image: linear-gradient(147deg, #64943E 0%, #95BF47 100%);
 	align-items: center;
 	justify-content: center;
 }
@@ -85,8 +85,36 @@ form{
     padding-bottom: 10px;
 }
 
-.divider{
+.divider {
     width:10px;
     height:auto;
     display:inline-block;
 }
+
+.navbar {
+    background-color: #192841;
+}
+
+.image-container {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.row.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .card {
+    box-shadow: 0 0px 20px 0 rgba(0,0,0,0.2);
+    background-color: #192841 !important;
+    color:white;
+}
+
+.carousel-item {margin-right: auto !important;}
