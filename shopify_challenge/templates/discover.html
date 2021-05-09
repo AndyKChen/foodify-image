@@ -27,7 +27,14 @@
                 <img src={{cloudfront + f.identifier}} class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-title">Date Added: {{f.date.date()}}</p>
-                    <small>{{f.username}}</small>               
+                    <small>{{f.username}}</small>
+                    <br>
+                    <form method="POST">
+                        <row>
+                            <input hidden name="identifier" value={{f.identifier}}></input>
+                            <input type="submit" name="download" value="download" class="btn btn-primary"></input>
+                        </row>
+                    </form>        
                 </div>
             </div>
         </div>
