@@ -15,13 +15,13 @@ class Login(MethodView):
         error = validate_user(username, password)
         if error:
             flash(error, 'danger')
-            return render_template("login.html")
+            return render_template("login.html"), 401
         
         session["username"] = username
         session.permanent = True
 
-        return redirect("/")
+        return redirect("/"), 200
     
     def get(self):
         session.clear()
-        return render_template("login.html")
+        return render_template("login.html"), 200
