@@ -1,5 +1,5 @@
 from flask import session
-from .helpers import register_test_user
+from .helpers import register_test_user, login_test_user
 
 
 def test_get_login_page(client):
@@ -9,8 +9,7 @@ def test_get_login_page(client):
 
 def test_valid_login(client):
     register_test_user(client)
-    res = client.post('/login', data = {'username':'test_user',
-                                        'password':'TestPw123'})
+    res = login_test_user(client)
     assert res.status_code == 200
 
 
