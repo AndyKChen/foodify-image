@@ -6,8 +6,8 @@
 
 {% block content %}
 <div>
-    {% if not public_images %}
-        {% if not private_images %}
+    {% if not public_images.items %}
+        {% if not private_images.items %}
         <div class="container py-5" style="margin-top: 20vh;">
 
             <header class="text-white text-center">
@@ -21,10 +21,10 @@
         {% endif %}
     {% endif %}
 
-        {% if private_images %}
-        <h3 style="margin-top: 50px; margin-left: 50px" style="color:white">Private Images</h3>
+        {% if private_images.items %}
+        <h3 style="margin-top: 20px; margin-left: 50px" style="color:white">Private Images</h3>
             <div class="row no-gutters" style="padding-left: 25px; padding-right: 25px">
-            {% for f in private_images %}
+            {% for f in private_images.items %}
             <div class="col">
                 <div class="card">
                     <img src={{cloudfront + f.identifier}} class="card-img-top" alt="...">
@@ -43,13 +43,28 @@
                 </div>
             </div>
             {% endfor %}
+            <div style="padding-right: 65px">
+                <nav aria-label="Page navigation example" style="margin-top:10px;">
+                    <ul class="pagination justify-content-end">
+                        {% for page in private_images.iter_pages() %}
+                                {% if page %}
+                                    <li class="page-item">
+                                        <a href="/personal/{{page}}" class="page-link">{{page}}</a>
+                                    </li>
+                                {% else %}
+                                ...
+                                {% endif %}
+                        {% endfor %}
+                    </ul>
+                </nav>
             </div>
+        </div>
         {% endif %}
 
-        {% if public_images %}
-        <h3 style="margin-top: 50px; margin-left: 50px" style="color:white">Public Images</h3>
+        {% if public_images.items %}
+        <h3 style="margin-top: 10px; margin-left: 50px" style="color:white">Public Images</h3>
             <div class="row no-gutters" style="padding-left: 25px; padding-right: 25px">
-            {% for f in public_images %}
+            {% for f in public_images.items %}
             <div class="col">
                 <div class="card">
                     <img src={{cloudfront + f.identifier}} class="card-img-top" alt="...">
@@ -68,7 +83,22 @@
                 </div>
             </div>
             {% endfor %}
+            <div style="padding-right: 65px">
+                <nav aria-label="Page navigation example" style="margin-top:10px;">
+                    <ul class="pagination justify-content-end">
+                        {% for page in public_images.iter_pages() %}
+                                {% if page %}
+                                    <li class="page-item">
+                                        <a href="/personal/{{page}}" class="page-link">{{page}}</a>
+                                    </li>
+                                {% else %}
+                                ...
+                                {% endif %}
+                        {% endfor %}
+                    </ul>
+                </nav>
             </div>
+        </div>
         {% endif %}
     </div>
 </div>

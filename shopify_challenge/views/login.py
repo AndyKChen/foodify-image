@@ -20,7 +20,7 @@ class Login(MethodView):
         session["username"] = username
         session.permanent = True
 
-        return redirect("/"), 301
+        return redirect("/personal/1"), 301
     
     def get(self):
         session.clear()

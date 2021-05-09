@@ -43,14 +43,18 @@ class ImageModel(db.Model):
         return cls.query.filter(cls.username == username).order_by(cls.date.desc()).all()
 
     @classmethod
-    def get_private_images_by_username(cls, username: str):
+    def get_private_images_by_username(cls, username: str, page_num: int):
         return cls.query.filter(and_(cls.username == username),
-                                    (cls.private == True)).order_by(cls.date.desc()).all()
+                                    (cls.private == True)).order_by(cls.date.desc()).paginate(per_page=5,
+                                                                                              page=page_num,
+                                                                                              error_out=False)
     
     @classmethod
-    def get_public_images_by_username(cls, username: str):
+    def get_public_images_by_username(cls, username: str, page_num: int):
         return cls.query.filter(and_(cls.username == username),
-                                    (cls.private == False)).order_by(cls.date.desc()).all()
+                                    (cls.private == False)).order_by(cls.date.desc()).paginate(per_page=5,
+                                                                                               page=page_num,
+                                                                                               error_out=False)
     
     @classmethod
     def get_image_by_identifier(cls, identifier: str):

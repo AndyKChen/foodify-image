@@ -44,7 +44,7 @@ class Upload(MethodView):
         pool.starmap(upload, zip(presigned_posts, uploaded_files))
         end = time.time()
         print(end - start)
-        return redirect("/personal"), 301
+        return redirect("/personal/1"), 301
 
     @login_required
     def get(self):
