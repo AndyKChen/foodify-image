@@ -8,8 +8,9 @@ from flask import redirect, render_template, session, request, flash
 from flask.views import MethodView
 
 from shopify_challenge.helpers.decorators import login_required
-from shopify_challenge.helpers.image_upload import upload, create_presigned_post
+from shopify_challenge.helpers.s3_helpers import upload, create_presigned_post
 from shopify_challenge.models.image import ImageModel
+from shopify_challenge.helpers.config import S3_BUCKET_NAME
 
 
 class Upload(MethodView):
@@ -35,7 +36,7 @@ class Upload(MethodView):
             except Exception:
                 return {'message': 'An error occurred saving the image to the database.'}, 500
 
-            new_post = create_presigned_post(os.environ.get('S3_BUCKET_NAME'), identifier)
+            new_post = create_presigned_post(S3_BUCKET_NAME, identifier)
             presigned_posts.append(new_post)
 
         pool = ThreadPool(processes=20)

@@ -3,10 +3,12 @@ import os
 import boto3
 import requests
 
+from .config import S3_BUCKET_NAME, ACCESS_KEY_ID, SECRET_ACCESS_KEY
+
 s3_client = boto3.client(
     's3',
-    aws_access_key_id = os.environ.get('ACCESS_KEY_ID'),
-    aws_secret_access_key = os.environ.get('SECRET_ACCESS_KEY'),
+    aws_access_key_id = ACCESS_KEY_ID,
+    aws_secret_access_key = SECRET_ACCESS_KEY,
     region_name='us-east-2'
 )
 
@@ -27,5 +29,15 @@ def create_presigned_post(bucket_name, object_name, fields=None, conditions=None
                                                  ExpiresIn=expiration)
     return response
 
+# Helper function to delete an image from s3
 def delete_image(key):
     s3_client.delete_object(Bucket=os.environ.get('S3_BUCKET_NAME'), Key=key)
+
+# Helper function to generate presgined url for download
+def create_presigned_url(key):
+    url = s3_client.generate_presigned_url(
+        'get_object',
+        Params={'Bucket': S3_BUCKET_NAME, 'Key': key},
+        ExpiresIn=300
+    )
+    return url
