@@ -1,5 +1,7 @@
 from PIL import Image
 import glob
+from shopify_challenge.models.image import ImageModel
+from io import StringIO
 
 TEST_IMAGES_PATH = 'tests/test_images/'
 
@@ -16,18 +18,29 @@ def login_test_user(client):
     return res
 
 def upload_single_image(client):
-    image_list = []
-    file = TEST_IMAGES_PATH + 'apple.jpg'
-    image_list.append(Image.open(file))
-    res = client.post('/upload', data = {'uploaded_files':image_list, 
-                                         'private':True})
+    path = TEST_IMAGES_PATH + 'single_image/apple.jpg'
+    res = client.post(
+            '/upload', # flask route
+            data={'file': [open(path, 'rb')],
+                'access_type':'private'}
+            )
     return res
 
 def upload_multiple_images(client):
+    path = TEST_IMAGES_PATH + 'multiple_images/*.jpg'
     image_list = []
-    for filename in glob.glob(TEST_IMAGES_PATH + '*.jpg'): #assuming gif
-        im=Image.open(filename)
+
+    for filename in glob.glob(path): 
+        im = open(filename, 'rb')
         image_list.append(im)
-    res = client.post('/upload', data = {'uploaded_files':image_list, 
-                                         'private':True})
+
+    res = client.post(
+            '/upload', # flask route
+            data={'file': image_list,
+                'access_type':'private'}
+            )
+    return res
+
+def edit_image(client, identifier, action):
+    res = client.post('/personal', data={'action':action, 'identifier':identifier})
     return res

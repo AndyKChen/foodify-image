@@ -18,7 +18,7 @@ class Personal(MethodView):
     def get(self):
         public_images = ImageModel.get_public_images_by_username(session['username'])
         private_images = ImageModel.get_private_images_by_username(session['username'])
-        return render_template("personal.html", public_images=public_images, private_images=private_images, cloudfront=CLOUDFRONT)
+        return render_template("personal.html", public_images=public_images, private_images=private_images, cloudfront=CLOUDFRONT), 200
     
     @login_required
     def post(self):
@@ -37,4 +37,4 @@ class Personal(MethodView):
                 mimetype='image/jpeg',
                 headers={"Content-Disposition": "attachment;filename=" + identifier}
             )
-        return redirect('/personal')
+        return redirect('/personal'), 200
