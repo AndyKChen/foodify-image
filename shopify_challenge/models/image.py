@@ -6,7 +6,7 @@ from shopify_challenge.extensions import db
 
 
 class ImageModel(db.Model):
-    __table__name = "Images"
+    __tablename__ = "Images"
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255))
@@ -39,18 +39,18 @@ class ImageModel(db.Model):
         return cls.query.all().order_by(cls.date.desc())
 
     @classmethod
-    def get_all_images_by_username(cls, username):
-        return cls.query.filter(cls.username == username)
+    def get_all_images_by_username(cls, username: str):
+        return cls.query.filter(cls.username == username).order_by(cls.date.desc()).all()
 
     @classmethod
-    def get_private_images_by_username(cls, username):
-        return cls.query.filter(and_(cls.username == username)
-                                    (cls.private == True))
+    def get_private_images_by_username(cls, username: str):
+        return cls.query.filter(and_(cls.username == username),
+                                    (cls.private == True)).order_by(cls.date.desc()).all()
     
     @classmethod
-    def get_public_images_by_username(cls, username):
-        return cls.query.filter(and_(cls.username == username)
-                                    (cls.private == False))
+    def get_public_images_by_username(cls, username: str):
+        return cls.query.filter(and_(cls.username == username),
+                                    (cls.private == False)).order_by(cls.date.desc()).all()
     
     def save_to_database(self):
         db.session.add(self)
