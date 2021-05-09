@@ -5,6 +5,64 @@
 {% endblock %}
 
 {% block content %}
+<div>
+    {% if not public_images %}
+        {% if not private_images %}
+        <div class="container py-5" style="margin-top: 20vh;">
 
+            <header class="text-white text-center">
+                <h1>No images yet! Upload some <a href="/upload" style="color: white">here.</a></h1>
+                <br>
+                <img src="https://res.cloudinary.com/mhmd/image/upload/v1564991372/image_pxlho1.svg" alt="" width="150" class="mb-4">
+            </header>
+
+        </div>
+        <div>
+        {% endif %}
+    {% endif %}
+
+        {% if private_images %}
+        <h3 style="margin-top: 50px; margin-left: 50px" style="color:white">Private Images</h3>
+            <div class="row no-gutters" style="padding-left: 25px; padding-right: 25px">
+            {% for f in private_images %}
+            <div class="col">
+                <div class="card" style="width: 20rem;">
+                    <img src={{cloudfront + f.identifier}} class="card-img-top" alt="..." width=150px>
+                    <div class="card-body">
+                        <p class="card-title">Date Added: {{f.date.date()}}</p>
+                        <small>{{f.identifier}}</small>
+                        <row>
+                            <a href="#" class="btn btn-success">Make Public</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </row>                    
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if public_images %}
+        <h3 style="margin-top: 50px; margin-left: 50px" style="color:white">Public Images</h3>
+            <div class="row">
+            {% for f in public_images %}
+            <div class="image-container col">
+                <div class="card" style="width: 20rem;">
+                    <img src={{cloudfront + f.identifier}} class="card-img-top" alt="..." width=150px>
+                    <div class="card-body">
+                        <p class="card-title">Date Added: {{f.date.date()}}</p>
+                        <small>{{f.identifier}}</small>
+                        <row>
+                            <a href="#" class="btn btn-success">Make Public</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </row>                    
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
 
 {% endblock %}
