@@ -52,6 +52,19 @@ class ImageModel(db.Model):
         return cls.query.filter(and_(cls.username == username),
                                     (cls.private == False)).order_by(cls.date.desc()).all()
     
+    @classmethod
+    def get_image_by_identifier(cls, identifier: str):
+        return cls.query.filter(cls.identifier == identifier).first()
+    
     def save_to_database(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete_from_database(self):
+        db.session.delete(self)
+        db.session.commit()
+    
+    def change_privacy(self):
+        self.private = False if self.private else True
         db.session.add(self)
         db.session.commit()
