@@ -18,7 +18,7 @@ class Register(MethodView):
         if errors:
             for error in errors:
                 flash(error, 'danger')
-            return render_template("register.html")
+            return render_template("register.html"), 400
 
         password = sha256_crypt.hash((str)(password))
 
@@ -32,7 +32,7 @@ class Register(MethodView):
             return {'message': 'An error occurred saving the user to the database.'}, 500
         
         flash('Account Created!', 'success')
-        return redirect("login.html")
+        return redirect("login.html"), 201
 
 
     # def post(self):
@@ -55,7 +55,7 @@ class Register(MethodView):
 
     def get(self):
         session.clear()
-        return render_template("register.html")
+        return render_template("register.html"), 200
     
     # def get(self, username):
     #     user = UserModel.find_by_username(username)
