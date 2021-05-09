@@ -1,9 +1,10 @@
 # Initalize s3 client 
 import os
+
 import boto3
 import requests
 
-from .config import S3_BUCKET_NAME, ACCESS_KEY_ID, SECRET_ACCESS_KEY
+from .config import ACCESS_KEY_ID, S3_BUCKET_NAME, SECRET_ACCESS_KEY
 
 s3_client = boto3.client(
     's3',

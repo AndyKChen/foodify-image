@@ -4,9 +4,9 @@ db = SQLAlchemy()
 
 from shopify_challenge.views.discover import Discover
 from shopify_challenge.views.login import Login
+from shopify_challenge.views.personal import Personal
 from shopify_challenge.views.register import Register
 from shopify_challenge.views.upload import Upload
-from shopify_challenge.views.personal import Personal
 
 discover_view = Discover.as_view('discover_view')
 register_view = Register.as_view('register_view')

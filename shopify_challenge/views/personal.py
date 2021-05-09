@@ -1,15 +1,15 @@
 import os
-
 from io import BytesIO
 
-from flask import render_template, session, request, redirect, Response
+import requests
+from flask import Response, redirect, render_template, request, session
 from flask.views import MethodView
 
-from shopify_challenge.helpers.decorators import login_required
-from shopify_challenge.models.image import ImageModel
-from shopify_challenge.helpers.s3_helpers import delete_image, create_presigned_url
 from shopify_challenge.helpers.config import CLOUDFRONT
-import requests
+from shopify_challenge.helpers.decorators import login_required
+from shopify_challenge.helpers.s3_helpers import (create_presigned_url,
+                                                  delete_image)
+from shopify_challenge.models.image import ImageModel
 
 
 class Personal(MethodView):

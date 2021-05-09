@@ -1,15 +1,16 @@
 import os
+import uuid
+from io import BytesIO
 
 import boto3
-from flask import redirect, render_template, session, request, Response
-from flask.views import MethodView
-from io import BytesIO
 import requests
-import uuid
+from flask import Response, redirect, render_template, request, session
+from flask.views import MethodView
 
-from shopify_challenge.models.image import ImageModel
 from shopify_challenge.helpers.config import CLOUDFRONT
 from shopify_challenge.helpers.s3_helpers import create_presigned_url
+from shopify_challenge.models.image import ImageModel
+
 
 class Discover(MethodView):
     def get(self):

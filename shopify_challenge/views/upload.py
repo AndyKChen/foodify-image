@@ -1,16 +1,16 @@
-import os
-import uuid
-import time
 import datetime
+import os
+import time
+import uuid
 from multiprocessing.pool import ThreadPool
 
-from flask import redirect, render_template, session, request, flash
+from flask import flash, redirect, render_template, request, session
 from flask.views import MethodView
 
-from shopify_challenge.helpers.decorators import login_required
-from shopify_challenge.helpers.s3_helpers import upload, create_presigned_post
-from shopify_challenge.models.image import ImageModel
 from shopify_challenge.helpers.config import S3_BUCKET_NAME
+from shopify_challenge.helpers.decorators import login_required
+from shopify_challenge.helpers.s3_helpers import create_presigned_post, upload
+from shopify_challenge.models.image import ImageModel
 
 
 class Upload(MethodView):
