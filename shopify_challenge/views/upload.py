@@ -24,7 +24,7 @@ class Upload(MethodView):
         for file in uploaded_files:
             if (file.filename == ""):
                 flash("You must select at least one image!", 'danger')
-                return render_template("upload.html")
+                return render_template("upload.html"), 400
             
             identifier = str(uuid.uuid4())
             image = ImageModel(session['username'],
@@ -44,9 +44,9 @@ class Upload(MethodView):
         pool.starmap(upload, zip(presigned_posts, uploaded_files))
         end = time.time()
         print(end - start)
-        return redirect("/personal")
+        return redirect("/personal"), 201
 
     @login_required
     def get(self):
-        return render_template("upload.html")
+        return render_template("upload.html"), 200
 
