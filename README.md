@@ -45,7 +45,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![Product Name Screen Shot](images/upload_page.png)
 
 
 ### Built With
@@ -57,7 +57,7 @@
 
 ### What I'm Proud Of
 
-* **Fast Bulk Image Upload:** With Python's multiprocessing module, I was able to leverage a thread pool to achieve concurrent uploads. This decrased upload time **3-fold** for bulk image uploads!
+* **Fast Bulk Image Upload:** With Python's multiprocessing module, I was able to leverage a thread pool to achieve concurrent uploads. This decreased upload time **3-fold** for bulk image uploads!
 * **Fast and Secure Content Delivery Network:** Takes advantage of caching content in edge locations to serve images almost immedietly. This allows for low latency and fast download speeds anywhere in the world.
 * **Presigned URLs**: Images are downloaded and uploaded using presigned URLs which reduces load on application server, hides AWS credentials from the client, and enables URL expiry.
 * **Private/Public Access:** Public images are available to download for all users on the "Discover" page, while private images are available on the "Personal" page. Users can also modify access or delete images after upload.
@@ -72,7 +72,7 @@
 
 The application is separated into a few simple pages:
 * **Login/Register**: Before accessing personal repository and upload functionality, the user must create an account and login. Usernames must be unique and passwords must be of at least length 8 with a capital letter and symbol.
-* **Discovery**: Displays all public images from all users. User login in not neccessary to view this page and download images.
+* **Discovery**: Displays all public images from all users. User login is not neccessary to view this page and download images.
 * **Upload:** Upload a (reasonably) unlimited number of images at once and choose public/private access.
 * **Personal:** Displays all images categorized between private and public of a logged in user. For each image, the user can delete it or change its access level.
 
