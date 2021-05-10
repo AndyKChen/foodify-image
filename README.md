@@ -41,7 +41,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+The theme for this image repository app is inspired by my love for food! Store your favourite food pictures privately, or share them to the world :)
 ![Personal Page](images/personal_page.png)
 
 
