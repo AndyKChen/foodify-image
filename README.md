@@ -120,4 +120,4 @@ The application is separated into a few simple pages:
 ## Contact
 Andy Chen - [@Linkedin](https://www.linkedin.com/in/andyc12/) - andy.chen1@uwaterloo.ca
 
-Project Link: [https://github.com/AndyKChen/shopify_challenge](https://github.com/github-username/repo_name)
+Project Link: [https://github.com/AndyKChen/shopify-challenge](https://github.com/AndyKChen/shopify-challenge)
