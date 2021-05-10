@@ -22,7 +22,7 @@
     <h3 style="margin-top: 50px; margin-left: 50px" style="color:white">Discover new images!</h3>
         <div class="row no-gutters" style="padding-left: 25px; padding-right: 25px">
         {% for f in images.items %}
-        <div class="col">
+        <div class="col" style="padding-bottom: 15px;">
             <div class="card">
                 <img src={{cloudfront + f.identifier}} class="card-img-top" alt="...">
                 <div class="card-body">
