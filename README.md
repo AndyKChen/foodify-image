@@ -10,7 +10,7 @@
   <p align="center">
     Image Sharing and Repository App for Shopify F2021 Developer Intern Challenge
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/github_username/repo_name"></a>
     <br />
 
   </p>
