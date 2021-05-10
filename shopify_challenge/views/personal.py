@@ -25,7 +25,7 @@ class Personal(MethodView):
         action = request.form.get('action')
         identifier = request.form['identifier']
         image = ImageModel.get_image_by_identifier(identifier)
-        if action == "make public" or action == "make private":
+        if action == "make public" or action == "privatize":
             image.change_privacy()
         elif action == "delete":
             delete_image(identifier)

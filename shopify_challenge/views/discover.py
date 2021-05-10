@@ -17,7 +17,7 @@ class Discover(MethodView):
         images = ImageModel.get_all_public_images(page_num)
         return render_template('discover.html', images=images, cloudfront=CLOUDFRONT)
 
-    def post(self):
+    def post(self, page_num):
         identifier = request.form['identifier']
         url = create_presigned_url(identifier)
         return Response(
