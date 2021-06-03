@@ -7,9 +7,9 @@ import requests
 from flask import Response, redirect, render_template, request, session
 from flask.views import MethodView
 
-from shopify_challenge.helpers.config import CLOUDFRONT
-from shopify_challenge.helpers.s3_helpers import create_presigned_url
-from shopify_challenge.models.image import ImageModel
+from foodify.helpers.config import CLOUDFRONT
+from foodify.helpers.s3_helpers import create_presigned_url
+from foodify.models.image import ImageModel
 
 
 class Discover(MethodView):

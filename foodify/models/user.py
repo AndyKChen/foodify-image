@@ -1,4 +1,4 @@
-from shopify_challenge.extensions import db
+from foodify.extensions import db
 
 
 class UserModel(db.Model):

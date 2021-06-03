@@ -1,6 +1,6 @@
 from flask import jsonify
 
-from shopify_challenge.extensions import (discover_view, login_view,
+from foodify.extensions import (discover_view, login_view,
                                           personal_view, register_view,
                                           upload_view)
 

@@ -3,9 +3,9 @@ import os
 from flask import Flask
 from flask_migrate import Migrate
 
-from shopify_challenge.extensions import db
-from shopify_challenge.routes.main import register_main_routes
-from shopify_challenge.routes.util import register_util_routes
+from foodify.extensions import db
+from foodify.routes.main import register_main_routes
+from foodify.routes.util import register_util_routes
 
 
 def create_app():

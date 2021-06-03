@@ -1,4 +1,4 @@
-from shopify_challenge.models.image import ImageModel
+from foodify.models.image import ImageModel
 
 from .helpers import (edit_image, login_test_user, register_test_user,
                       upload_single_image)

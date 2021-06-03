@@ -2,8 +2,8 @@ from flask import flash, redirect, render_template, request, session
 from flask.views import MethodView
 from passlib.hash import sha256_crypt
 
-from shopify_challenge.helpers.validations import validate_new_user
-from shopify_challenge.models.user import UserModel
+from foodify.helpers.validations import validate_new_user
+from foodify.models.user import UserModel
 
 
 class Register(MethodView):

@@ -1,6 +1,6 @@
 import glob
 
-from shopify_challenge.models.image import ImageModel
+from foodify.models.image import ImageModel
 
 TEST_IMAGES_PATH = 'tests/test_images/'
 

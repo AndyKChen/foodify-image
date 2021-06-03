@@ -2,7 +2,7 @@ from sqlalchemy import and_
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.ext.mutable import MutableList
 
-from shopify_challenge.extensions import db
+from foodify.extensions import db
 
 
 class ImageModel(db.Model):

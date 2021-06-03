@@ -2,7 +2,7 @@ import re
 
 from passlib.hash import sha256_crypt
 
-from shopify_challenge.models.user import UserModel
+from foodify.models.user import UserModel
 
 MIN_PW_LENGTH = 8
 

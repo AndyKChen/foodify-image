@@ -7,10 +7,10 @@ from multiprocessing.pool import ThreadPool
 from flask import flash, redirect, render_template, request, session
 from flask.views import MethodView
 
-from shopify_challenge.helpers.config import S3_BUCKET_NAME
-from shopify_challenge.helpers.decorators import login_required
-from shopify_challenge.helpers.s3_helpers import create_presigned_post, upload
-from shopify_challenge.models.image import ImageModel
+from foodify.helpers.config import S3_BUCKET_NAME
+from foodify.helpers.decorators import login_required
+from foodify.helpers.s3_helpers import create_presigned_post, upload
+from foodify.models.image import ImageModel
 
 
 class Upload(MethodView):

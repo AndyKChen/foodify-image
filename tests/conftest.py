@@ -2,8 +2,8 @@ import os
 
 import pytest
 
-from shopify_challenge import create_app
-from shopify_challenge.extensions import db
+from foodify import create_app
+from foodify.extensions import db
 
 
 @pytest.fixture
