@@ -1,7 +1,7 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/AndyKChen/shopify_challenge">
+  <a href="https://github.com/AndyKChen/shopify-challenge">
     <img src="images/foodify_logo.png" alt="Logo" width="120" height="120">
   </a>
 
@@ -41,7 +41,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+The theme for this image repository app is inspired by my love for food! Store your favourite food pictures privately, or share them to the world :)
 ![Personal Page](images/personal_page.png)
 
 
@@ -120,4 +120,4 @@ The application is separated into a few simple pages:
 ## Contact
 Andy Chen - [@Linkedin](https://www.linkedin.com/in/andyc12/) - andy.chen1@uwaterloo.ca
 
-Project Link: [https://github.com/AndyKChen/shopify_challenge](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/AndyKChen/shopify-challenge](https://github.com/AndyKChen/shopify-challenge)
