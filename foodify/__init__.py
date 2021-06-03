@@ -12,8 +12,8 @@ def create_app():
     app = Flask(__name__, instance_relative_config=True)
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
         'DATABASE_URL',
-        'postgresql://postgres:postgres@localhost:5432/shopify-challenge'
-    ).replace("//", "ql://", 1)
+        'postgres://postgres:postgres@localhost:5432/shopify-challenge'
+    ).replace("://", "ql://", 1)
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.config['DEBUG'] = True
