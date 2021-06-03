@@ -8,7 +8,7 @@
   <h3 align="center">foodify</h3>
 
   <p align="center">
-    Image Sharing and Repository App for Shopify F2021 Developer Intern Challenge
+    Image Sharing and Repository App
     <br />
   </p>
 </p>
@@ -80,7 +80,7 @@ The application is separated into a few simple pages:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/AndyKChen/shopify_challenge.git
+   git clone https://github.com/AndyKChen/foodify-image.git
    ```
 2. Create virtual environment
    ```sh
@@ -97,7 +97,7 @@ The application is separated into a few simple pages:
    ```
 5. Export environment variables
    ```sh
-   export FLASK_APP=shopify_challenge
+   export FLASK_APP=foodify
    ```
 6. Run App (from root directory)
    ```sh
@@ -120,4 +120,4 @@ The application is separated into a few simple pages:
 ## Contact
 Andy Chen - [@Linkedin](https://www.linkedin.com/in/andyc12/) - andy.chen1@uwaterloo.ca
 
-Project Link: [https://github.com/AndyKChen/shopify-challenge](https://github.com/AndyKChen/shopify-challenge)
+Project Link: [https://github.com/AndyKChen/foodify-image](https://github.com/AndyKChen/foodify-image)
