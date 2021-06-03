@@ -1,1 +1,1 @@
-web: uwsgi shopify_challenge/uwsgi.ini
+web: uwsgi foodify/uwsgi.ini
