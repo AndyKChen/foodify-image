@@ -11,7 +11,7 @@ from foodify.routes.util import register_util_routes
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-        'DATBASE_URL',
+        'DATABASE_URL',
         'postgresql://postgres:postgres@localhost:5432/shopify-challenge'
     )
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
